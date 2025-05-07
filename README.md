@@ -1,44 +1,88 @@
-### This repository is no longer maintained!
+![Build](https://github.com/whereareyouRAJ/PROJECT-2-CI-CD-PIPELINE/actions/workflows/main.yml/badge.svg)
+![Docker](https://img.shields.io/badge/Docker-Built-blue)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Deployed-success)
+![Made with](https://img.shields.io/badge/Made%20with-GitHub%20Actions-purple)
 
-**For the most up to date test app to get you started on Heroku, head on over to [`node-js-getting-started`](https://github.com/heroku/node-js-getting-started).**
+# CI/CD Pipeline (Github Actions + Docker + Minikube)
+
+## Objective 
+> This project demonstrates a complete CI/CD pipeline using Github Actions, Docker, Dockerhub, and Kubernetes via Minikube. 
 
 ---
 
-# node-js-sample
+## Features 
+- Build Docker image using Github Actions
+- Push image to DockerHub
+- Deploy image tom Minikue Kubernetes cluster
+- Expose via NodePort and access in browser
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+--- 
 
-## Running Locally
+## Tools Used
+- GitHub Actions
+- Docker & DockerHub 
+- Minikube (local Kubernetes)
+- kubectl
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+---
 
-```sh
-git clone git@github.com:heroku/node-js-sample.git # or clone your own fork
-cd node-js-sample
-npm install
-npm start
+## Project Structure 
+
+```
+.
+├── .github/
+│   └── workflows/
+│       └── main.yml
+├── public/
+│   └── node.svg
+├── screenshots/
+│   ├── Accessed-successfully.png
+│   ├── build-succesfully.pngg
+│   ├── image-deployed.png
+│   └── kubernetes-resources.png
+├── .gitignore
+├── app.json
+├── deployment.yaml
+├── Dockerfile
+├── index.js
+├── package.json
+├── Procfile
+├── README.md
+└── service.yaml
+
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+
+## CI/CD Pipeline Overview
+1. Code push triggers Github Actions
+2. Builds Docker image
+3. Pushes to Dockerhub
+4. Pulls and deploys to Minikube
+
+## Screenshots
+
+1. Github Actions build success
+- Image built and pushed to Dockerhub
+![](./screenshots/build-successfully.png)
+2. DockerHub Image
+ - Image deployed successfully
+![](./screenshots/image-deployed.png)
+3. Minikube Pods & Service
+ - Kubernetes resource created
+![](./screenshots/kubernetes-resourcces.png)
+4. Access via Browser
+ - Hello world live on minikube 
+![](./screenshots/Accessed-successfully.png)
+
+---
+
+## Run locally 
 
 ```
-heroku create
-git push heroku master
-heroku open
+minikube start 
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+minikube ip 
+
 ```
-
-Alternatively, you can deploy your own copy of the app using the web-based flow:
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [10 Habits of a Happy Node Hacker](https://blog.heroku.com/archives/2014/3/11/node-habits)
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
