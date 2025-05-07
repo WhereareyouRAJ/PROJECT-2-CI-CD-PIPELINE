@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
 ![Build](https://github.com/whereareyouRAJ/PROJECT-2-CI-CD-PIPELINE/actions/workflows/main.yml/badge.svg)
 ![Docker](https://img.shields.io/badge/Docker-Built-blue)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-Deployed-success)
@@ -89,4 +87,4 @@ kubectl apply -f service.yaml
 minikube ip 
 
 ```
->>>>>>> 3b63c68d3577df7e85f55487fa36029727a7cf7d
+
